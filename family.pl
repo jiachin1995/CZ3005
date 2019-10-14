@@ -8,7 +8,7 @@ female(ann)
 brother(jerry,stuart).
 brother(jerry,kather).
 brother(peter, warren).
-sister(ann, mayalice).
+sister(ann, maryalice).
 sister(kather,jerry).
 parent_of(warren,jerry).
 parent_of(maryalice,jerry).
