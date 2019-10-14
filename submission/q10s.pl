@@ -1,4 +1,4 @@
-?- ['games.pl'].
+?- ['sports.pl'].
 ?- ['counter.pl'].
 ?- ['selected.pl'].
 ?- ['help.pl'].

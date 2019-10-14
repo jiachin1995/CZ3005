@@ -2,10 +2,10 @@
 :- dynamic selection/1.  
 :- dynamic selected/1.  
 
-/* function to initialise selection. Each selection is a list of games in random order. We retract all previous instances and assert new selection */
+/* function to initialise selection. Each selection is a list of sports in random order. We retract all previous instances and assert new selection */
 init_selection :-
     retractall(selection(_)),
-    games(L0),
+    sports(L0),
     random_permutation(L0,L),
     assertz(selection(L)).
 
