@@ -1,6 +1,6 @@
 /* List of sports */
-sports([tennis, diving, golf, baseball, soccer, rugby, basketball, frisbee, volleyball, badminton, swimming, canoeing, skiing,
-surfing, sky_diving, scuba_diving, archery, karate, bowling, dodgeball, table_tennis]).
+sports([tennis, diving, golf, baseball, soccer, rugby, basketball, ultimate_frisbee, volleyball, badminton, swimming, canoeing, skiing,
+surfing, archery, karate, bowling, dodgeball, table_tennis]).
 
 /* Game contents */
 tennis([court, singles, doubles, outdoor, ball, racket]).
@@ -11,20 +11,21 @@ baseball.
 soccer.
 rugby.
 basketball.
-frisbee.
+ultimate_frisbee.
 volleyball.
 badminton.
 swimming.
 canoeing.
 skiing.
 surfing.
-sky_diving.
-scuba_diving.
 archery.
 karate.
 bowling.
 dodgeball.
 table_tennis.
+
+/*list of options. Options are items that contains a list as their arity*/
+options([equipment]).
 
 
 /*equipment*/

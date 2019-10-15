@@ -2,7 +2,10 @@
 
 help:-
     writeln("Type the following commands for options: \n"),
-    writeln("listgames"),
+    writeln("list(sports).  - Prints a list of all sports"),
+    writeln("                 This is a tree of depth 2. You can call list() on items of depth 1. E.g. list(tennis)."),
+    writeln("list(options). - Prints a list of all options. "),
+    writeln("                 This is a tree of depth 2. You can call list() on items of depth 1. E.g. list(equipment)."),
     writeln("getscore"),
     writeln("has(X)"),
     writeln("is(X)").

@@ -4,8 +4,7 @@
 ?- ['help.pl'].
 
 reset :-
-    initcounter,
-    initscore,
+    initscoretotal,
     initround,
     init_selection,
     writeln("Resetting 10 Questions \n"),
@@ -15,6 +14,8 @@ reset :-
     writeln("Try to get the lowest score! \n").
 
 start:- 
+    initcounter,
+    initscore,
     incrementround,
     set_select,
     round(R),
@@ -34,9 +35,17 @@ has(X, N) :-
     eg. has(teamsize,8)
    
 */   
+/* function used to make guesses */
 is(X) :-
-    selected(S),
-    X = S.
-    /*start new round if true else increment score*/
+    selected(S),        /* get selected S*/
+    X = S,              /* check if guess is correct*/
+    endround.           /* start new round if true else increment score*/
     
-    
+/*function to end the round*/
+endround:-
+    score(S),
+    scoretotal(TS),
+    format('Your score is ~a. Your total score is ~a. ~n', [S,TS]),
+    writeln('Round ended. Starting new round in 3 seconds. \n'),
+    sleep(3),
+    start.

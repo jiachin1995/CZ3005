@@ -27,6 +27,20 @@ incrementscore :-
     retractall(score(_)), 
     succ(V0, V),
     assertz(score(V)).
+
+/*same as counter. But used for total scoring*/
+:- dynamic scoretotal/1.   
+
+initscoretotal :-
+    retractall(scoretotal(_)),
+    assertz(scoretotal(0)).
+
+addscoretotal :-
+    score(V0),
+    scoretotal(V1),
+    V is V0+V1,
+    retractall(scoretotal(_)), 
+    assertz(scoretotal(V)).
     
 /*same as counter. But used for rounds*/
 :- dynamic round/1.   
