@@ -1,6 +1,10 @@
 /* List of sports */
+sports([tennis, diving]).
+/* temporarily remove rest of options for debugging
+
 sports([tennis, diving, golf, baseball, soccer, rugby, basketball, ultimate_frisbee, volleyball, badminton, swimming, canoeing, skiing,
 surfing, archery, karate, bowling, dodgeball, table_tennis]).
+*/
 
 /* Game contents */
 tennis([court, singles, doubles, outdoor, ball, racket]).

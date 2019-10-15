@@ -24,11 +24,16 @@ start:-
     
 
     
-/*
+
 has(X) :-
-    check that X is in selected.list
-    return true or false
+    increment,
+    incrementscore,
+    selected(S),
+    call(S, L),         /*Evaluates S(L). Get list L of selected sport S..*/
+    hasitem(L, X).
     
+    
+/*    
 has(X, N) :-
     check that X has integer N in selected.list
     return true or false.
@@ -54,3 +59,11 @@ endround:-
     writeln('Round ended. Starting new round in 3 seconds. \n'),
     sleep(3),
     start.
+    
+/*function to check that item is in list*/
+hasitem([], _) :-           /*End of recursion. Return false.*/
+    false.
+hasitem([H|T], X):-         /*If first item is X, return True. Else, recursively calls hasitem. */
+    H = X;
+    hasitem(T, X).
+    
