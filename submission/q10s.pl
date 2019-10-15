@@ -37,15 +37,20 @@ has(X, N) :-
 */   
 /* function used to make guesses */
 is(X) :-
-    selected(S),        /* get selected S*/
-    X = S,              /* check if guess is correct*/
-    endround.           /* start new round if true else increment score*/
+    selected(S),                /* get selected S*/
+    X = S ->                    /* check if guess is correct*/
+    endround;                   /* if true, start new round */
+    writeln("Sorry, that was the wrong guess. Try again!"),
+    incrementscore.             /* else, increment score*/
+    
     
 /*function to end the round*/
 endround:-
+    writeln('You have guessed correctly! '),
     score(S),
+    addscoretotal,
     scoretotal(TS),
-    format('Your score is ~a. Your total score is ~a. ~n', [S,TS]),
+    format("Your score is ~a. Your total score is ~a. Try to get the lowest score! ~n~n", [S,TS]),
     writeln('Round ended. Starting new round in 3 seconds. \n'),
     sleep(3),
     start.
