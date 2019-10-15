@@ -7,7 +7,7 @@ surfing, archery, karate, bowling, dodgeball, table_tennis]).
 */
 
 /* Game contents */
-tennis([court, singles, doubles, outdoor, ball, racket]).
+tennis([court, singles, doubles, outdoor, ball, racket, maxteamsize(2)]).
 diving([pool, singles, jump]).
 
 golf([field, singles, outdoor, ball, club]).
