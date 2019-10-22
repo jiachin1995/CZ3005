@@ -1,4 +1,4 @@
-/*counter function */
+/*counter function. Keeps track of number of questions, has() */
 
 /* declare counter. dynamic means that procedure is not fixed*/
 :- dynamic counter/1.   

@@ -6,9 +6,11 @@ help:-
     writeln("                 This is a tree of depth 2. You can call list() on items of depth 1. E.g. list(tennis)."),
     writeln("list(options). - Prints a list of all options. "),
     writeln("                 This is a tree of depth 2. You can call list() on items of depth 1. E.g. list(equipment)."),
-    writeln("getscore"),
-    writeln("has(X)"),
-    writeln("is(X)").
+	writeln("special. - Prints a list of special commands. E.g. has(maxteamsize(2))"),
+    writeln("                 This is a tree of depth 2. You can call list() on items of depth 1. E.g. list(equipment)."),
+	writeln("getscore.		- Prints your score."),
+    writeln("has(X).		- Ask if selected game has X. Replies Yes or No. "),
+    writeln("is(X).			- Guess the selected game. ").
     
 /*This helper function lists all elements in a set. E.g. list(equipment)*/
 list(X):-
@@ -37,3 +39,7 @@ myprint(L):-
     selectn(L,4,Trim,Tail),
     myprintlist(Trim),
     myprint(Tail).
+	
+/* Special commands that does not fit in other options*/
+special:-
+	writeln("You can type has(maxteamsize(2)) to ask if the game has a max team size of 2.").

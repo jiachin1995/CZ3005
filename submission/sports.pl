@@ -28,9 +28,9 @@ bowling.
 dodgeball.
 table_tennis.
 
-/*list of options. Options are items that contains a list as their arity*/
+/*list of options. Options are items that contains a list as their arity. Used by help.pl. */
 options([equipment]).
 
 
 /*equipment*/
-equipment([ball, racket]).
+equipment([ball, racket,frisbee]).

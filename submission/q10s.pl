@@ -27,11 +27,26 @@ start:-
 
 has(X) :-
     increment,
-    incrementscore,
+	score(V),
+	
+	/*if score less than 10*/
+	V =< 10 -> 			
+	
+	/*then statement*/
+	incrementscore,
     selected(S),
     call(S, L),         /*Evaluates S(L). Get list L of selected sport S..*/
-    hasitem(L, X).
     
+	/* if hasitem is true. This is a second if else statement */
+	(hasitem(L, X) ->
+		format("Selected game does contain ~w", [X]);
+		format("Selected game does not contain ~w", [X])
+	);
+	
+	/*else*/
+    writeln("10 questions has been asked. no response will be given.").
+	
+	
     
 /*    
 has(X, N) :-
@@ -53,10 +68,7 @@ is(X) :-
 endround:-
 	/*ending round*/
     writeln('You have guessed correctly! '),
-    score(S),
-    addscoretotal,
-    scoretotal(TS),
-    format("Your score is ~a. Your total score is ~a. Try to get the lowest score! ~n~n", [S,TS]),
+    getscore,
 	
 	/* if round < 5*/
 	round(R),		
@@ -78,3 +90,11 @@ hasitem([H|T], X):-         /*If first item is X, return True. Else, recursively
     H = X;
     hasitem(T, X).
     
+getscore :-
+	score(S),
+    addscoretotal,
+    scoretotal(TS),
+    format("Your score is ~a. Your total score is ~a. Try to get the lowest score! ~n~n", [S,TS]).
+	
+
+	
