@@ -51,14 +51,25 @@ is(X) :-
     
 /*function to end the round*/
 endround:-
+	/*ending round*/
     writeln('You have guessed correctly! '),
     score(S),
     addscoretotal,
     scoretotal(TS),
     format("Your score is ~a. Your total score is ~a. Try to get the lowest score! ~n~n", [S,TS]),
+	
+	/* if round < 5*/
+	round(R),		
+	R < 5 ->
+	
+	/*then statement*/
+	
     writeln('Round ended. Starting new round in 3 seconds. \n'),
     sleep(3),
-    start.
+    start;
+	
+	/*else statement*/
+	writeln("Game Complete. Type 'reset.' followed by 'start.' to begin a new game. \n").
     
 /*function to check that item is in list*/
 hasitem([], _) :-           /*End of recursion. Return false.*/
