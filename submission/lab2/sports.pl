@@ -1,6 +1,6 @@
 /* List of sports */
 sports([tennis, diving, golf, baseball, soccer, rugby, basketball, ultimate_frisbee, volleyball, badminton, swimming, skiing,
-    surfing, archery, karate, bowling, dodgeball, table_tennis]).
+    surfing, archery, karate, bowling, dodgeball, table_tennis, hockey]).
 
 
 /* Game contents */
@@ -22,11 +22,12 @@ karate([court, indoor, scores, maxteamsize(1)]).
 bowling([court, indoor, ball, scores, maxteamsize(5)]).
 dodgeball([court, indoor, ball, scores, maxteamsize(6)]).
 table_tennis([court, singles, doubles, indoor, scores, ball, racket, maxteamsize(3)]). 
+hockey([court, indoor, puck, hockeystick, scores, maxteamsize(6)]).
 
 /*list of options. Options are items that contains a list as their arity. Used by help.pl. */
 options([equipment, performancetype]).
 
 
 /*options and their lists*/
-equipment([ball, racket,frisbee,surfboard,skiis, bow_arrow, shuttlecock, bat, club]).
+equipment([ball, puck, racket,frisbee,surfboard,skiis, bow_arrow, shuttlecock, bat, club, hockeystick]).
 performancetype([scores, fastest]).
