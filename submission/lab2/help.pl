@@ -20,7 +20,7 @@ list(X):-
 /*This function prints all elements of a list*/
 myprintlist([]):- writeln("").                      /*if list is empty, print newline*/
 myprintlist([H|T]):-
-    format('~|~a~t~20+', [H]),                  /*print first element of list, formatted to fill 20 spaces*/
+    format('~|~w~t~20+', [H]),                  /*print first element of list, formatted to fill 20 spaces*/
     myprintlist(T).                                 /*recursively calls rest of list*/
     
 /*This function splits a list into 2. Trim is of N length and Tail is the remainder of list. We will use this for formatting print.*/
