@@ -1,5 +1,4 @@
 /* List of sports */
-
 sports([tennis, diving, golf, baseball, soccer, rugby, basketball, ultimate_frisbee, volleyball, badminton, swimming, skiing,
     surfing, archery, karate, bowling, dodgeball, table_tennis]).
 

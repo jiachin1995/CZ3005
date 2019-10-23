@@ -1,5 +1,5 @@
-?- ['q10s.pl'].
+?- ['q10s.pl'].     /*Load main module*/
 
-?- reset.
-?- start.
+?- reset.           /*Reset entire game*/
+?- start.           /*Start round 1*/
 

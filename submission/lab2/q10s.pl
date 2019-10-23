@@ -1,8 +1,10 @@
+/*Import modules*/
 ?- ['sports.pl'].
 ?- ['counter.pl'].
 ?- ['selected.pl'].
 ?- ['help.pl'].
 
+/*Reset function for new game*/
 reset :-
     initscoretotal,
     initround,
@@ -13,6 +15,7 @@ reset :-
     writeln("Each wrong guess increases your score by 1."),
     writeln("Try to get the lowest score! \n").
 
+/*Function to start a new round*/
 start:- 
     initcounter,
     initscore,
@@ -23,10 +26,9 @@ start:-
     writeln("Type 'help.'(no qoutes) to receive help or instructions.").
     
 
-    
-
+/*function to ask a question*/
 has(X) :-
-    increment,
+    increment,      /**increment score/
 	score(V),
 	
 	/*if score less than 10*/
@@ -46,15 +48,7 @@ has(X) :-
 	/*else*/
     writeln("10 questions has been asked. no response will be given.").
 	
-	
-    
-/*    
-has(X, N) :-
-    check that X has integer N in selected.list
-    return true or false.
-    eg. has(teamsize,8)
-   
-*/   
+
 /* function used to make guesses */
 is(X) :-
     selected(S),                /* get selected S*/
