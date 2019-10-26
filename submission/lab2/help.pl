@@ -1,4 +1,7 @@
-/* The purpose of this file is to implement print options for help*/
+/* The purpose of this file is to implement print options for help. 
+    This module is necessary as not all sports are implemented and there may be different interpretation according to the developer.
+    As such, it is necessary to list all sports and all the sports contents themselves.
+    */
 
 help:-
     writeln("Type the following commands for options: \n"),

@@ -28,7 +28,7 @@ start:-
 
 /*function to ask a question*/
 has(X) :-
-    increment,      /**increment score/
+    increment,      /*increment score*/
 	score(V),
 	
 	/*if score less than 10*/

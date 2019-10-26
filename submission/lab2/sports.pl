@@ -6,8 +6,8 @@ sports([tennis, diving, golf, baseball, soccer, rugby, basketball, ultimate_fris
 /* Game contents */
 tennis([court, outdoor, singles, doubles, ball, racket, scores, knockout, maxteamsize(2)]).
 diving([pool, indoor, singles, scores, performance, maxteamsize(1)]).
-golf([field, outdoor, singles, outdoor, scores, ball, performance, club, maxteamsize(1)]).
-baseball([field, outdoor, outdoor, ball, bat, scores, performance, maxteamsize(9) ]).
+golf([field, outdoor, singles, scores, ball, performance, club, maxteamsize(1)]).
+baseball([field, outdoor, ball, bat, scores, performance, maxteamsize(9) ]).
 soccer([field, outdoor, ball, scores, timed, maxteamsize(11) ]).
 rugby([field, outdoor, ball, scores, timed, maxteamsize(15)]).
 basketball([court, indoor, ball, scores, timed, maxteamsize(5)]).
@@ -31,4 +31,4 @@ options([equipment, scoringtype, gamemode]).
 /*options and their lists*/
 equipment([ball, puck, racket,frisbee,surfboard,skiis, bow_arrow, shuttlecock, bat, club, hockeystick]).
 scoringtype([scores, fastest]).
-gamemode([knockout,timed, performance])
+gamemode([knockout,timed, performance]).
