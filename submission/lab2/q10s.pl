@@ -28,10 +28,10 @@ start:-
 
 /*function to ask a question*/
 has(X) :-
-    increment,      /*increment score*/
-	score(V),
+    increment,      /*increment questions counter*/
+	counter(V),
 	
-	/*if score less than 10*/
+	/*if questions counter less than 10*/
 	V =< 10 -> 			
 	
 	/*then statement*/

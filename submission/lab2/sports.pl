@@ -4,25 +4,25 @@ sports([tennis, diving, golf, baseball, soccer, rugby, basketball, ultimate_fris
 
 
 /* Game contents */
-tennis([court, outdoor, singles, doubles, ball, racket, scores, knockout, maxteamsize(2)]).
-diving([pool, indoor, singles, scores, performance, maxteamsize(1)]).
-golf([field, outdoor, singles, scores, ball, performance, club, maxteamsize(1)]).
-baseball([field, outdoor, ball, bat, scores, performance, maxteamsize(9) ]).
+tennis([court, outdoor, singles, doubles, ball, racket, scores, knockout]).
+diving([pool, indoor, singles, scores, performance]).
+golf([field, outdoor, singles, scores, ball, performance, club]).
+baseball([field, outdoor, ball, bat, scores, performance ]).
 soccer([field, outdoor, ball, scores, timed, maxteamsize(11) ]).
 rugby([field, outdoor, ball, scores, timed, maxteamsize(15)]).
-basketball([court, indoor, ball, scores, timed, maxteamsize(5)]).
-ultimate_frisbee([field, outdoor, scores, frisbee, timed, maxteamsize(7)]).
-volleyball([court, indoor, ball, scores, knockout, maxteamsize(6)]).
-badminton([court, indoor, singles, doubles, scores, knockout, shuttlecock, racket, maxteamsize(2)]).
-swimming([pool, indoor, fastest, performance, maxteamsize(1)]).
-skiing([field, outdoor,skiis, fastest, performance, performance, maxteamsize(1)]).
-surfing([sea, outdoor,surfboard, scores, performance, maxteamsize(1)]).
-archery([field, court, indoor, bow_arrow, scores, performance, maxteamsize(1)]).
-karate([court, indoor, scores, knockout, maxteamsize(1)]).
-bowling([court, indoor, ball, scores, performance, maxteamsize(5)]).
-dodgeball([court, indoor, ball, scores, knockout, maxteamsize(6)]).
-table_tennis([court, singles, doubles, indoor, scores, knockout, ball, racket, maxteamsize(3)]). 
-hockey([court, indoor, puck, hockeystick, scores, timed, maxteamsize(6)]).
+basketball([court, indoor, ball, scores, timed]).
+ultimate_frisbee([field, outdoor, scores, frisbee, timed]).
+volleyball([court, indoor, ball, scores, knockout]).
+badminton([court, indoor, singles, doubles, scores, knockout, shuttlecock, racket]).
+swimming([pool, indoor, fastest, performance]).
+skiing([field, outdoor,skiis, fastest, performance, performance]).
+surfing([sea, outdoor,surfboard, scores, performance]).
+archery([field, court, indoor, bow_arrow, scores, performance]).
+karate([court, indoor, scores, knockout]).
+bowling([court, indoor, ball, scores, performance]).
+dodgeball([court, indoor, ball, scores, knockout]).
+table_tennis([court, singles, doubles, indoor, scores, knockout, ball, racket]). 
+hockey([court, indoor, puck, hockeystick, scores, timed]).
 
 /*list of options. Options are items that contains a list as their arity. Used by help.pl. */
 options([equipment, scoringtype, gamemode]).
