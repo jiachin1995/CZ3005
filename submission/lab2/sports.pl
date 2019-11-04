@@ -8,8 +8,8 @@ tennis([court, outdoor, singles, doubles, ball, racket, scores, knockout]).
 diving([pool, indoor, singles, scores, performance]).
 golf([field, outdoor, singles, scores, ball, performance, club]).
 baseball([field, outdoor, ball, bat, scores, performance ]).
-soccer([field, outdoor, ball, scores, timed, maxteamsize(11) ]).
-rugby([field, outdoor, ball, scores, timed, maxteamsize(15)]).
+soccer([field, outdoor, ball, scores, timed ]).
+rugby([field, outdoor, ball, scores, timed ]).
 basketball([court, indoor, ball, scores, timed]).
 ultimate_frisbee([field, outdoor, scores, frisbee, timed]).
 volleyball([court, indoor, ball, scores, knockout]).

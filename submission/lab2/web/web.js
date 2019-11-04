@@ -89,6 +89,7 @@ function ajaxIs() {
       response = $(this.responseText).text().trim();
       
       if (response == 'Correct') {
+        $("#guessbutton").prop("onclick", null).off("click");
         document.getElementById('guess_result').innerHTML = 'Correct! Starting new round in 3 seconds...';
         
         setTimeout(function () {
@@ -97,10 +98,18 @@ function ajaxIs() {
         }, 3000);
         
       } else if (response == 'Game Over') {
-          alert('game over');
+          $("#guessbutton").prop("onclick", null).off("click");
+          document.getElementById('guess_result').innerHTML = 'Game Over! Refresh this page to start a new game.';
       } else {
           //read response
-          alert('That was the wrong guess.' + is + ' has been removed as an option.');
+          array = response.split(':');
+          score = array[1];
+          total = array[2];
+          
+          updateScore(score,total);
+          
+          
+          document.getElementById('guess_result').innerHTML = 'That was the wrong guess. ' + is + ' has been removed as an option.';
       }
     }
   };
@@ -110,7 +119,32 @@ function ajaxIs() {
 
 
 function showHistory() {
-    document.getElementById('history').innerHTML = getCookie('hashistory');
+    //get array from cookie
+    str = getCookie('hashistory');
+    array = str.split(",");
+    
+    //create table
+    var content = "<table id='historytable' ><th><h4>History</h4></th>"
+    for(i=1; i<array.length; i++){
+        ele  = array[i];
+        item = ele.split(':')
+        
+        if (item[0] == 'Yes') {
+            content += '<tr class ="green theight" ><td> Yes. It does contain '+ item[1] +'.</td></tr>';
+        } else {
+            content += '<tr class ="red theight" ><td> No. It does not contain '+ item[1] +'.</td></tr>';
+        }
+    }
+    for (i=0; i< 11-array.length; i++) {
+        content += '<tr class="theight"><td></td></tr>';
+    }
+    
+    content += "</table>"
+
+    $('#history').empty();
+    $('#history').append(content);
+    
+    
 }
 
 function resetCookie() {

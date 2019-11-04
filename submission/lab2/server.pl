@@ -111,50 +111,57 @@ index(_Request) :-
                       ]),
 
                       
-                      
-                      
-                      
-                      %%filters for has options
-                      label([for='has_filters'], ['Filters']),
-                      select([id='has_filters', form = 'hasform', onChange = 'updatefilter(this)'], 
-                          [ option(equipment), 
-                            option(scoringtype),
-                            option(gamemode),
-                            \my_options(Sports)
-                          ]),
-                      ' <Filters changes the available options below>',
-                      
-                      %% has form
-                      form([id = 'hasform', action='/', method='get'],
-                        [
-                          'Does the sport have ',
-                          select([id = 'h1', name='has'], [\my_options(H1)]),
-                          select([id = 'h2', name='has', style = 'display:none'], [\my_options(H2)]),
-                          select([id = 'h3', name='has', style = 'display:none'], [\my_options(H3)]),
-                          select([id = 'h4', name='has', style = 'display:none'], [\my_options(H4)]), 
-                          select([id = 'h5', name='has', style = 'display:none'], [\my_options(H5)]),
-                          select([id = 'h6', name='has', style = 'display:none'], [\my_options(H6)]),
-                          select([id = 'h7', name='has', style = 'display:none'], [\my_options(H7)]),
-                          select([id = 'h8', name='has', style = 'display:none'], [\my_options(H8)]), 
-                          select([id = 'h9', name='has', style = 'display:none'], [\my_options(H9)]),
-                          select([id = 'h10', name='has', style = 'display:none'], [\my_options(H10)]),
-                          select([id = 'h11', name='has', style = 'display:none'], [\my_options(H11)]),
-                          select([id = 'h12', name='has', style = 'display:none'], [\my_options(H12)]), 
-                          select([id = 'h13', name='has', style = 'display:none'], [\my_options(H13)]),
-                          select([id = 'h14', name='has', style = 'display:none'], [\my_options(H14)]),
-                          select([id = 'h15', name='has', style = 'display:none'], [\my_options(H15)]),
-                          select([id = 'h16', name='has', style = 'display:none'], [\my_options(H16)]), 
-                          select([id = 'h17', name='has', style = 'display:none'], [\my_options(H17)]),
-                          select([id = 'h18', name='has', style = 'display:none'], [\my_options(H18)]),
-                          select([id = 'h19', name='has', style = 'display:none'], [\my_options(H19)]),
-                          select([id = 'h20', name='has', style = 'display:none'], [\my_options(H20)]),         
-                          select([id = 'h21', name='has', style = 'display:none'], [\my_options(H21)]),
-                          select([id = 'h22', name='has', style = 'display:none'], [\my_options(H22)]),                          
+                      div([id = 'has_container'],[
+                          %%filters for has options
+                          h2('Select a filter and ask a question'),
                           
-                          '? ',
-                          button([onclick="ajaxHas()", type='button'],['Ask a question'])
+                          
+                          label([for='has_filters'], ['Filters']),
+                          select([id='has_filters', form = 'hasform', onChange = 'updatefilter(this)'], 
+                              [ option(equipment), 
+                                option(scoringtype),
+                                option(gamemode),
+                                \my_options(Sports)
+                              ]),
+                          
+                          div([],['<Filters changes the available options below>']),
+                          
+                          %% has form
+                          form([id = 'hasform', action='/', method='get'],
+                            [
+                              'Does the sport have ',
+                              select([id = 'h1', name='has'], [\my_options(H1)]),
+                              select([id = 'h2', name='has', style = 'display:none'], [\my_options(H2)]),
+                              select([id = 'h3', name='has', style = 'display:none'], [\my_options(H3)]),
+                              select([id = 'h4', name='has', style = 'display:none'], [\my_options(H4)]), 
+                              select([id = 'h5', name='has', style = 'display:none'], [\my_options(H5)]),
+                              select([id = 'h6', name='has', style = 'display:none'], [\my_options(H6)]),
+                              select([id = 'h7', name='has', style = 'display:none'], [\my_options(H7)]),
+                              select([id = 'h8', name='has', style = 'display:none'], [\my_options(H8)]), 
+                              select([id = 'h9', name='has', style = 'display:none'], [\my_options(H9)]),
+                              select([id = 'h10', name='has', style = 'display:none'], [\my_options(H10)]),
+                              select([id = 'h11', name='has', style = 'display:none'], [\my_options(H11)]),
+                              select([id = 'h12', name='has', style = 'display:none'], [\my_options(H12)]), 
+                              select([id = 'h13', name='has', style = 'display:none'], [\my_options(H13)]),
+                              select([id = 'h14', name='has', style = 'display:none'], [\my_options(H14)]),
+                              select([id = 'h15', name='has', style = 'display:none'], [\my_options(H15)]),
+                              select([id = 'h16', name='has', style = 'display:none'], [\my_options(H16)]), 
+                              select([id = 'h17', name='has', style = 'display:none'], [\my_options(H17)]),
+                              select([id = 'h18', name='has', style = 'display:none'], [\my_options(H18)]),
+                              select([id = 'h19', name='has', style = 'display:none'], [\my_options(H19)]),
+                              select([id = 'h20', name='has', style = 'display:none'], [\my_options(H20)]),         
+                              select([id = 'h21', name='has', style = 'display:none'], [\my_options(H21)]),
+                              select([id = 'h22', name='has', style = 'display:none'], [\my_options(H22)]),                          
+                              
+                              '? ',
+                              button([onclick="ajaxHas()", type='button'],['Ask a question'])
+                          ])
+                      
                       ]),
+                      
+                      
 
+                      h2('Make a guess'),
                       
                       %% is form
                       form([id = 'isform', action='/', method='get'],
@@ -164,7 +171,7 @@ index(_Request) :-
                             [id='is', form = 'isform'], 
                             [ \my_options(Sports)]
                           ),
-                          button([onclick="ajaxIs()", type='button'],['Make a guess'])
+                          button([id='guessbutton', onclick="ajaxIs()", type='button'],['Make a guess'])
                       ]),
                       div([id = 'guess_result'],[])
                 
@@ -246,6 +253,10 @@ is_html(_Request) :-
             initscoretotal,
             initround,
             init_selection,
+            initcounter,
+            initscore,
+            incrementround,
+            set_select,
             reply_html_page([],[
                     div([id='isresponse'],['Game Over'])
                 ])
@@ -255,8 +266,12 @@ is_html(_Request) :-
         
 
     incrementscore,            /* else, increment score*/
+    
+    score(S),
+    scoretotal(TS),
     reply_html_page([],[
-            div([id='isresponse'],['Wrong'])
+            div([id='isresponse'],['Wrong:',S,':',TS])
+            
         ]). 
     
 

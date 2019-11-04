@@ -26,9 +26,60 @@ body {
     flex: 1 0 200px;
     margin:5px 20px;
 
-    background-color:pink;
 }
 
 #rules {
    
+}
+
+#has_container {
+    background-color:#66ffcc;
+    padding: 20px;
+}
+
+#historytable {
+    border-collapse: collapse;
+    width:100%;
+}
+
+.green {
+     background-color:#66ffcc;
+}
+
+.red {
+     background-color:#ff6666;
+}
+
+.theight {
+    height:1.5em;
+}
+
+button {
+    border-radius: 12px;
+    background-color: #4CAF50;
+    font-size: 16px;
+    padding: 15px 32px;
+    border: none;
+    color: white;
+}
+
+button:hover {background-color: #3e8e41}
+
+button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+#hasform {
+    margin:20px;
+    font-size:20px;
+}
+
+#isform {
+    margin:20px;
+    font-size:20px;
+}
+
+#guess_result {
+    font-size:20px;
 }
