@@ -19,7 +19,7 @@ http:location(files, '/web', []).
 %% rule for main handler
 :- http_handler(/, index, []).
 :- http_handler('/has', has_html, []).
-:- http_handler(/, index, []).
+:- http_handler('/is', is_html, []).
 
 
 %% initiate the server
@@ -33,6 +33,8 @@ index(_Request) :-
     sports(Sports),
     score(S),
     scoretotal(TS),
+    counter(V),
+    round(R),
     
     %% all possible has options
     equipment(H1),
@@ -72,16 +74,45 @@ index(_Request) :-
                     [ 
                       
                       %% body
-                      h1('Guess the sport in 10 Questions'),
+                      h1([id = 'header'], 'Guess the sport in 10 Questions'),
                       %% rules
-                      p([id='rules'],['Theme is Sports! ',
-                        'Each question increases your score by 1. ',
-                        'Each wrong guess increases your score by 1. ',
-                        'Try to get the lowest score!'
+
+                      div([id = 'mid_container'],[
+                          div([id='rules'],[
+                            h4('Rules'),
+                            div([],['Theme is Sports! ']),
+                            div([],['Each question increases your score by 1. ']),
+                            div([],['Each wrong guess increases your score by 1. ']),
+                            div([],['Try to get the lowest score!'])
+                          ]),
+                          %% scoreboard & rounds
+                          div([id = 'scoreboard'],[
+                            h4([id='round'],['Round ',R,' of 5']),
+                          
+                            div([id='score'],['Your current score is ', S, '.']),
+                            div([id='totalscore'],[' Your total score is ', TS, '.'])
+                          ]),
+                          
+                          
+                          
+                          
+                          %% if new round, reset cookies
+                          script([],[
+                                'var counter = ',
+                                V,
+                                '; ',
+                                'if (counter==0) {resetCookie();}'
+                            ]),
+
+
+                          %% history
+                          div([id = 'history'],[]),
+                          script([],['showHistory();'])
                       ]),
-                      %% score
-                      p([id='score'],['Your current score is ', S, '.']),
-                      p([id='totalscore'],[' Your total score is ', TS, '.']),
+
+                      
+                      
+                      
                       
                       %%filters for has options
                       label([for='has_filters'], ['Filters']),
@@ -121,9 +152,8 @@ index(_Request) :-
                           select([id = 'h22', name='has', style = 'display:none'], [\my_options(H22)]),                          
                           
                           '? ',
-                          button([type='submit'],['Ask a question'])
+                          button([onclick="ajaxHas()", type='button'],['Ask a question'])
                       ]),
-                      
 
                       
                       %% is form
@@ -131,27 +161,107 @@ index(_Request) :-
                         [
                           'The sport is ',
                           select(
-                            [name='is', form = 'isform'], 
+                            [id='is', form = 'isform'], 
                             [ \my_options(Sports)]
                           ),
-                          button([type='submit'],['Make a guess'])
-                      ])
-
+                          button([onclick="ajaxIs()", type='button'],['Make a guess'])
+                      ]),
+                      div([id = 'guess_result'],[])
+                
                       
                     ]).
 
 % has request. Used with Ajax
 has_html(_Request) :-
+
+
+    % get http parameters
     http_parameters(_Request,
                     [ 
                       has(H, [])
                     ]),
-    reply_html_page([],['testtest'], H).
-    
+    increment,      /*increment questions counter*/
+	counter(V),
+	
 
     
+
+    	/*if questions counter less than 10*/
+	V =< 10 -> 			
+	
+	/*then statement*/
+	incrementscore,
+    selected(S),
+    call(S, L),         /*Evaluates S(L). Get list L of selected sport S..*/
+    
+    %get current score
+    score(X),
+    scoretotal(TX),
+    
+    
+    
+	/* if hasitem is true. This is a second if else statement */
+	(hasitem(L, H) ->
+		reply_html_page([],[
+                div([id='hasresponse'],['Yes:', H, ':', X, ':', TX])
+            ]);
+		reply_html_page([],[
+                div([id='hasresponse'],['No:', H, ':', X, ':', TX])
+                
+            ])
+	);
+	
+	/*else*/
+    reply_html_page([],[
+            div([id='hasresponse'],['10 limit reached'])
+        ]). 
     
 % is request. Used with Ajax
+is_html(_Request) :-
+    % get http parameters
+    http_parameters(_Request,
+                    [ 
+                      is(X, [])
+                    ]),
+
+    selected(S),                    /* get selected S*/
+    
+	(X = S ->
+        addscoretotal,
+        
+        round(R),
+        (R < 5 ->
+            %start new round
+            initcounter,
+            initscore,
+            incrementround,
+            set_select,
+            
+            %% http response
+            reply_html_page([],[
+                    div([id='isresponse'],['Correct'])
+                ]);
+                
+            % reset game
+            initscoretotal,
+            initround,
+            init_selection,
+            reply_html_page([],[
+                    div([id='isresponse'],['Game Over'])
+                ])
+            )
+            
+    );
+        
+
+    incrementscore,            /* else, increment score*/
+    reply_html_page([],[
+            div([id='isresponse'],['Wrong'])
+        ]). 
+    
+
+
+
 
 % generate list of options
 my_options([]) --> [].      %end of recursion

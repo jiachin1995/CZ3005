@@ -4,7 +4,7 @@
 /* function to initialise counter as 0. we retract all previous instances of counter and assert new counter */
 initcounter :-
     retractall(counter(_)),     /* Forget all previous declartions of counter */
-    assertz(counter(1)).        /* Initialise counter as 1*/
+    assertz(counter(0)).        /* Initialise counter as 1*/
 
 /*function to increment counter*/
 increment :-
