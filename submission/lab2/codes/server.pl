@@ -1,3 +1,4 @@
+%% import web server modules & main
 :- debug.
 :- use_module(library(http/thread_httpd)).
 :- use_module(library(http/http_dispatch)).
@@ -29,14 +30,14 @@ server(Port) :-
 
 % main requests
 index(_Request) :-
-    %%load parameters
+    %% load parameters
     sports(Sports),
     score(S),
     scoretotal(TS),
     counter(V),
     round(R),
     
-    %% all possible has options
+    %% load fitlers, which is all possible has options
     equipment(H1),
     scoringtype(H2),
     gamemode(H3),
@@ -238,7 +239,7 @@ is_html(_Request) :-
         
         round(R),
         (R < 5 ->
-            %start new round
+            % Correct guess. start new round
             initcounter,
             initscore,
             incrementround,
@@ -249,7 +250,7 @@ is_html(_Request) :-
                     div([id='isresponse'],['Correct'])
                 ]);
                 
-            % reset game
+            % Game over. reset game
             initscoretotal,
             initround,
             init_selection,
@@ -264,7 +265,7 @@ is_html(_Request) :-
             
     );
         
-
+    % Wrong guess
     incrementscore,            /* else, increment score*/
     
     score(S),
